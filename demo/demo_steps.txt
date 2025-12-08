@@ -1,0 +1,28 @@
+===============================
+ INSIDER THREAT DEMO STEPS
+===============================
+
+1. Start ELK
+   cd docker
+   docker-compose up -d
+   docker-compose ps
+
+2. Start log generator (normal users)
+   cd log_generator
+   python3 generator.py
+
+3. Run attack simulation
+   cd attack_simulations
+   python3 suspicious_commands.py
+   python3 file_access_spike.py
+   python3 data_exfiltration.py
+
+4. Run UEBA detection
+   cd ueba
+   source ../venv/bin/activate
+   python3 ueba_detect.py
+
+5. Open dashboard
+   Browser → http://localhost:5601
+   - Check "UEBA Alerts Dashboard"
+   - Check "User Activity Dashboard"
