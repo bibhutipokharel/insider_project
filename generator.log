@@ -1,0 +1,14 @@
+/home/kali/Desktop/insider_project/log_generator/generator.py:72: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().isoformat() + "Z"
+/home/kali/Desktop/insider_project/log_generator/generator.py:98: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  hour = datetime.utcnow().hour
+[+] Sending logs to Logstash on port 5044
+{'event_id': '6236ccc1-1f49-4cf0-8db9-2c73ed66a57a', '@timestamp': '2026-01-14T02:41:08.813331Z', 'user': 'finance_bob', 'role': 'Finance', 'action': 'file_write', 'source_ip': '10.0.0.172', 'file': '/home/code/app.py', 'command': None, 'bytes_sent': None, 'url': None, 'is_suspicious': False, 'suspicious_reason': None}
+Traceback (most recent call last):
+  File "/home/kali/Desktop/insider_project/log_generator/generator.py", line 154, in <module>
+    main()
+    ~~~~^^
+  File "/home/kali/Desktop/insider_project/log_generator/generator.py", line 145, in main
+    sock.sendall((json.dumps(event) + "\n").encode())
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe

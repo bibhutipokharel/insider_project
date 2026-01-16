@@ -1,0 +1,19 @@
+# ===============================
+# Insider Threat Detection Rules
+# ===============================
+
+# Track all command execution (per user)
+-a always,exit -F arch=b64 -S execve -k command_exec
+
+# Monitor sensitive system files
+-w /etc/ -p wa -k etc_access
+
+# Monitor user home directories
+-w /home/ -p wa -k home_access
+
+# Monitor sudo configuration
+-w /etc/sudoers -p wa -k sudo_config
+
+# Monitor USB / removable devices
+-w /dev/ -p rwxa -k usb_activity
+
